@@ -1,0 +1,17 @@
+<div>
+  <h3>Currency to USD Calculator</h3>
+  <form [formGroup]="conversionForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" formControlName="amount"/>
+    </div>
+    <div>
+      <label for="currency">Currency:</label>
+      <input type="text" id="currency" formControlName="currency" placeholder="Enter currency code (e.g., EUR)"/>
+    </div>
+    <button type="submit" [disabled]="conversionForm.invalid">Convert</button>
+  </form>
+  <div *ngIf="convertedAmount !== null">
+    <p>{{ conversionForm.value.amount }} {{ conversionForm.value.currency }} is equivalent to {{ convertedAmount }} USD.</p>
+  </div>
+</div>
